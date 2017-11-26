@@ -97,19 +97,28 @@ body {
 }
 
 #canvas {
-	display: block;
-	visibility: hidden;
+	display: none;
 	width: 100vw;
 	height: 100vh;
 	max-width: 70vh;
-	background: black;
+	background: white;
 	margin: 0px auto;
-	opacity: 0;
-	transition: visibility 0s 0.3s, opacity 0.3s;
 }
 
 #canvas.visible {
-	visibility: visible;
-	opacity: 1;
-	transition: visibility 0s, opacity 0.3s;
+	display: block;
+}
+
+#tapToStart {
+	position: fixed;
+	bottom: -50px;
+	width: 100%;
+	color: white;
+	font-size: 24px;
+	text-align: center;
+	transition: bottom 0.3s;
+}
+
+#tapToStart.visible {
+	bottom: 30%;
 }
