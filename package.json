@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/swssqewe12/DashTap/issues"
   },
-  "homepage": "https://github.com/swssqewe12/DashTap#readme"
+  "homepage": "https://github.com/swssqewe12/DashTap#readme",
+  "engines": {
+	  "node": "6.11.3",
+	  "npm": "3.10.10"
+	}
 }
