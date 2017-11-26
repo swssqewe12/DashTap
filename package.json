@@ -1,4 +1,24 @@
 {
-  "name": "JiroPlay",
-  "version": "0.0.1"
+  "name": "dash-tap",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swssqewe12/DashTap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swssqewe12/DashTap/issues"
+  },
+  "homepage": "https://github.com/swssqewe12/DashTap#readme"
 }
