@@ -45,7 +45,9 @@ body {
 }
 
 #storeButton.selected {
+	width: 160px;
 	top: 12px;
+	left: calc(50vw - 88px);
 	padding: 8px;
 }
 
@@ -55,7 +57,9 @@ body {
 }
 
 #tutorialButton.selected {
+	width: 195px;
 	top: 12px;
+	left: calc(50vw - 90px);
 	padding: 8px;
 }
 
@@ -71,7 +75,7 @@ body {
 	text-align: center;
 	transition: opacity 0.3s;
 	cursor: pointer;
-	transition: top 0.4s, opacity 0.3s;
+	transition: top 0.4s, opacity 0.3s, width 0.3s, left 0.3s;
 }
 
 .button.selected {
