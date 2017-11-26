@@ -7,6 +7,7 @@
 
 body {
 	font-family: "Open Sans";
+	overflow: hidden;
 }
 
 #overlay {
@@ -93,4 +94,22 @@ body {
 
 .hidden {
 	opacity: 0;
+}
+
+#canvas {
+	display: block;
+	visibility: hidden;
+	width: 100vw;
+	height: 100vh;
+	max-width: 70vh;
+	background: black;
+	margin: 0px auto;
+	opacity: 0;
+	transition: visibility 0s 0.3s, opacity 0.3s;
+}
+
+#canvas.visible {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s, opacity 0.3s;
 }

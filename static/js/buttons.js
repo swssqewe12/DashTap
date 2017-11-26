@@ -5,6 +5,8 @@ playButton.onclick = function()
 	tutorialButton.classList.add("hidden");
 	gameName.classList.add("hidden");
 	back.classList.add("visible");
+	canvas.classList.add("visible");
+	overlay.classList.add("hidden");
 }
 
 storeButton.onclick = function()
@@ -35,4 +37,6 @@ back.onclick = function()
 	tutorialButton.classList.remove("hidden");
 	gameName.classList.remove("hidden");
 	back.classList.remove("visible");
+	canvas.classList.remove("visible");
+	overlay.classList.remove("hidden");
 }
