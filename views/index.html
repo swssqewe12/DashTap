@@ -3,18 +3,25 @@
 <head>
 	<title>DashTap</title>
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/css/elements.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<canvas id="canvas">Your phone or browser is outdated and doesn't support this game!</canvas>
-<div id="overlay"></div>
-<div id="gameName">DashTap</div>
-<div class="button" id="playButton">Play</div>
-<div class="button" id="storeButton">Store</div>
-<div class="button" id="tutorialButton">How to Play</div>
-<div id="tapToStart">TAP TO START</div>
-<div class="hidden" id="scoreel"></div>
-<img id="back" src="/img/back.png"></img>
+	<div id="overlay" class="visible"></div>
+	<div id="title" class="visible">DashTap</div>
+	<img id="playButton" class="visible" onclick="gameScreen(); startGame();" src="/img/play.png">
+	<img id="storeButton" class="visible" src="/img/store.png">
+	<img id="notButton" class="visible" src="/img/notification.png">
+	<div id="score">0</div>
+	<div id="tapText">TAP TO TRY AGAIN</div>
+	<div id="storePopup" class="popup">
+
+	</div>
+	<div id="notPopup" class="popup">
+
+	</div>
+	<div id="popupTitle"></div>
+	<img id="backButton" src="/img/back.png">
 </body>
-<script src="/js/buttons.js"></script>
+<script src="/js/main.js"></script>
 </html>

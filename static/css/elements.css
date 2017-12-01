@@ -1,0 +1,153 @@
+#overlay {
+	visibility: hidden;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0;
+	transition: visibility 0s 0.3s, opacity 0.3s;
+}
+
+#overlay.visible {
+	visibility: visible;
+	opacity: 0.9;
+	transition: visibility 0s, opacity 0.3s;
+}
+
+#overlay.opaque.visible {
+	opacity: 0.6;
+}
+
+#title {
+	position: fixed;
+	top: -70px;
+	width: 100%;
+	color: white;
+	text-align: center;
+	font-size: 48px;
+	opacity: 0;
+	transition: top 0.3s, opacity 0.3s;
+}
+
+#title.visible {
+	top: 120px;
+	opacity: 1;
+}
+
+#playButton {
+	visibility: hidden;
+	position: fixed;
+	top: 50vh;
+	left: calc(50vw - 50px);
+	width: 100px;
+	height: 100px;
+	opacity: 0;
+	transition: visibility 0s 0.3s, opacity 0.3s;
+}
+
+#playButton.visible {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s, opacity 0.3s;
+}
+
+#storeButton {
+	position: fixed;
+	top: -50px;
+	left: 20px;
+	width: 32px;
+	transition: top 0.3s;
+}
+
+#storeButton.visible {
+	top: 20px;
+}
+
+#notButton {
+	position: fixed;
+	top: -50px;
+	right: 20px;
+	width: 32px;
+	transition: top 0.3s;
+}
+
+#notButton.visible {
+	top: 20px;
+}
+
+#score {
+	position: fixed;
+	top: -60px;
+	width: 100%;
+	font-size: 48px;
+	text-align: center;
+	color: white;
+	transition: top 0.3s, color 0.3s;
+}
+
+#score.visible {
+	top: 70px;
+}
+
+#score.black {
+	color: black;
+}
+
+#tapText {
+	position: fixed;
+	bottom: -40px;
+	width: 100%;
+	font-size: 24px;
+	text-align: center;
+	color: white;
+	transition: bottom 0.3s;
+}
+
+#tapText.visible {
+	bottom: 70px;
+}
+
+.popup {
+	position: fixed;
+	top: -100vh;
+	left: 0px;
+	width: 100vw;
+	height: calc(100vh - 50px);
+	transition: top 0.3s;
+	background: white;
+}
+
+.popup.visible {
+	top: 50px;
+}
+
+#popupTitle {
+	position: fixed;
+	top: -50px;
+	left: 0px;
+	width: calc(100vw - 62px);
+	height: 50px;
+	padding-left: 62px;
+	background: #eee;
+	font-size: 18px;
+	line-height: 50px;
+	transition: top 0.3s;
+}
+
+#popupTitle.visible {
+	top: 0px;
+}
+
+#backButton {
+	position: fixed;
+	top: -50px;
+	left: 14px;
+	width: 24px;
+	transition: top 0.3s;
+}
+
+#backButton.visible {
+	top: 14px;
+}
