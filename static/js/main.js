@@ -37,7 +37,7 @@ function startGame()
 	notButton.classList.remove("visible");
 	score.classList.add("black");
 	tapText.classList.remove("visible");
-	setTimeout(endGame, 2000);
+	setTimeout(endGame, 6000);
 }
 
 function endGame()
