@@ -8,6 +8,16 @@ var popupState = 0;
 // 1 -- Store
 // 2 -- Notifications
 
+function menuScreen()
+{
+	screenState = 0;
+	title.classList.add("visible");
+	playButton.classList.add("visible");
+	overlay.classList.remove("opaque");
+	score.classList.remove("visible");
+	tapText.classList.remove("visible");
+}
+
 function gameScreen()
 {
 	screenState = 1;
@@ -38,33 +48,34 @@ function endGame()
 	tapText.classList.add("visible");
 }
 
+function showNotifications()
+{
+	popupState = 2;
+	notifications.classList.add("visible");
+}
+
+function hideNotifications()
+{
+	popupState = 0;
+	notifications.classList.remove("visible");
+}
+
 storeButton.onclick = function(event)
 {
-	popupState = 1;
-	backButton.classList.add("visible");
-	popupTitle.classList.add("visible");
-	storePopup.classList.add("visible");
-	popupTitle.innerText = "Store";
+	//popupState = 1;
 	event.stopPropagation();
 }
 
 notButton.onclick = function(event)
 {
-	popupState = 2;
-	backButton.classList.add("visible");
-	popupTitle.classList.add("visible");
-	notPopup.classList.add("visible");
-	popupTitle.innerText = "Notifications";
-	event.stopPropagation();
-}
+	if (popupState == 2)
+	{
+		hideNotifications();
+		return;
+	}
 
-backButton.onclick = function(event)
-{
-	popupState = 0;
-	backButton.classList.remove("visible");
-	popupTitle.classList.remove("visible");
-	storePopup.classList.remove("visible");
-	notPopup.classList.remove("visible");
+	menuScreen();
+	showNotifications();
 	event.stopPropagation();
 }
 
@@ -72,4 +83,7 @@ document.body.onclick = function()
 {
 	if (screenState == 1 && popupState == 0)
 		startGame();
+	else if (popupState == 2)
+		hideNotifications();
+
 }
