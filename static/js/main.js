@@ -51,12 +51,14 @@ function endGame()
 function showNotifications()
 {
 	popupState = 2;
+	overlay.classList.remove("opaque");
 	notifications.classList.add("visible");
 }
 
 function hideNotifications()
 {
 	popupState = 0;
+	menuScreen();
 	notifications.classList.remove("visible");
 }
 
@@ -74,7 +76,6 @@ notButton.onclick = function(event)
 		return;
 	}
 
-	menuScreen();
 	showNotifications();
 	event.stopPropagation();
 }
