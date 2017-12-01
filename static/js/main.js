@@ -16,6 +16,7 @@ function menuScreen()
 	overlay.classList.remove("opaque");
 	score.classList.remove("visible");
 	tapText.classList.remove("visible");
+	setTimeout(() => canvas.classList.remove("visible"), 300);
 }
 
 function gameScreen()
@@ -25,6 +26,7 @@ function gameScreen()
 	playButton.classList.remove("visible");
 	overlay.classList.add("opaque");
 	score.classList.add("visible");
+	canvas.classList.add("visible");
 }
 
 function startGame()
@@ -52,6 +54,7 @@ function showNotifications()
 {
 	popupState = 2;
 	overlay.classList.remove("opaque");
+	setTimeout(() => canvas.classList.remove("visible"), 300);
 	notifications.classList.add("visible");
 }
 

@@ -137,3 +137,15 @@
 	top: -10px;
 	right: 0px;
 }
+
+#canvas {
+	display: none;
+	width: 100vw;
+	max-width: 80vh;
+	height: 100vh;
+	margin: 0px auto;
+}
+
+#canvas.visible {
+	display: block;
+}

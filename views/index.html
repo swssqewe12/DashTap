@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/elements.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body onload="main();">
 	<div id="overlay" class="visible"></div>
 	<div id="title" class="visible">DashTap</div>
 	<img id="playButton" class="visible" onclick="gameScreen(); startGame();" src="/img/play.png">
@@ -15,6 +15,8 @@
 	<div id="score">0</div>
 	<div id="tapText">TAP TO TRY AGAIN</div>
 	<div id="notifications">You have no new notifications!</div>
+	<canvas id="canvas">Your smartphone or browser does not support this game!</canvas>
 </body>
 <script src="/js/main.js"></script>
+<script src="/js/game.js"></script>
 </html>
