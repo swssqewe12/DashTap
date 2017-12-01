@@ -115,8 +115,8 @@
 	top: 75px;
 	right: 20px;
 	width: calc(100vw - 60px);
-	max-width: 360px;
-	min-height: 420px;
+	max-width: 330px;
+	height: calc(100vh - 115px);
 	padding: 10px;
 	background: white;
 	border-radius: 6px;
