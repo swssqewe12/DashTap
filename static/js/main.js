@@ -53,15 +53,23 @@ function endGame()
 function showNotifications()
 {
 	popupState = 2;
-	overlay.classList.remove("opaque");
-	setTimeout(() => canvas.classList.remove("visible"), 300);
+	title.classList.add("noanimation");
+	playButton.classList.add("noanimation");
+	score.classList.add("noanimation");
+	tapText.classList.add("noanimation");
+	menuScreen();
+	setTimeout(function() {
+		title.classList.remove("noanimation");
+		playButton.classList.remove("noanimation");
+		score.classList.remove("noanimation");
+		tapText.classList.remove("noanimation");
+	}, 300)
 	notifications.classList.add("visible");
 }
 
 function hideNotifications()
 {
 	popupState = 0;
-	menuScreen();
 	notifications.classList.remove("visible");
 }
 
