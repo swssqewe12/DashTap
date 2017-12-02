@@ -1,13 +1,6 @@
 var virtualWidth = 800;
 var player;
 
-function main()
-{
-	player = new Player();
-	var ctx = canvas.getContext("2d");
-	requestAnimationFrame(() => tick(ctx));
-}
-
 function tick(ctx)
 {
 	update(ctx);
