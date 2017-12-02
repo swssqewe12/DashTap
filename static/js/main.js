@@ -38,6 +38,7 @@ function startGame()
 	score.classList.add("black");
 	tapText.classList.remove("visible");
 	setTimeout(endGame, 6000);
+	window.onresize();
 }
 
 function endGame()
