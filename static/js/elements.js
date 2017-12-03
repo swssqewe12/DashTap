@@ -8,6 +8,8 @@ var popupState = 0;
 // 1 -- Store
 // 2 -- Notifications
 
+var temporaryNoClick = false;
+
 function menuScreen()
 {
 	screenState = 0;
@@ -37,12 +39,14 @@ function startGame()
 	notButton.classList.remove("visible");
 	score.classList.add("black");
 	tapText.classList.remove("visible");
-	setTimeout(endGame, 6000);
 	window.onresize();
+	initGame();
 }
 
 function endGame()
 {
+	temporaryNoClick = true;
+	setTimeout(function() {temporaryNoClick = false}, 500);
 	screenState = 1;
 	overlay.classList.add("visible");
 	storeButton.classList.add("visible");
@@ -94,7 +98,7 @@ notButton.onclick = function(event)
 
 document.body.onclick = function()
 {
-	if (screenState == 1 && popupState == 0)
+	if (screenState == 1 && popupState == 0 && temporaryNoClick == false)
 		startGame();
 	else if (popupState == 2)
 		hideNotifications();

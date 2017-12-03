@@ -23,18 +23,22 @@ Player.prototype.draw = function(ctx)
 
 Player.prototype.mouseDown = function()
 {
-	this.mdt = +new Date();
+	if (screenState == 2)
+		this.mdt = +new Date();
 }
 
 Player.prototype.mouseUp = function()
 {
-	var dt = +new Date() - this.mdt;
-
-	if (dt < 100)
+	if (screenState == 2)
 	{
-		if (this.side.aim == 0)
-			this.side.newAim(400);
-		else
-			this.side.newAim(0);
+		var dt = +new Date() - this.mdt;
+
+		if (dt < 100)
+		{
+			if (this.side.aim == 0)
+				this.side.newAim(400);
+			else
+				this.side.newAim(0);
+		}
 	}
 }
