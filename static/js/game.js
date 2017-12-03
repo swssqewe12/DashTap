@@ -1,6 +1,9 @@
 function Game()
 {
 	this.isRunning = false;
+	this.player;
+
+	this.tick();
 }
 
 Game.prototype.tick = function()
@@ -17,15 +20,19 @@ Game.prototype.tick = function()
 Game.prototype.reset = function()
 {
 	window.onresize();
+
+	this.player = new Player();
+
 	this.isRunning = true;
 }
 
 Game.prototype.update = function()
 {
-
+	this.player.update();
 }
 
 Game.prototype.draw = function()
 {
-
+	ctx.clear();
+	this.player.draw();
 }

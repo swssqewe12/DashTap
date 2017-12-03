@@ -3,7 +3,7 @@ var ctx;
 function main()
 {
 	var elementManager = new ElementManager();
-	var game = new Game();
+	/*var*/ game = new Game();
 	ctx = new Context(canvas);
 
 	document.body.onclick = function()
