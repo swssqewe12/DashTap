@@ -23,13 +23,13 @@ Player.prototype.draw = function(ctx)
 
 Player.prototype.mouseDown = function()
 {
-	if (screenState == 2)
+	if (elementManager.screenState == 2)
 		this.mdt = +new Date();
 }
 
 Player.prototype.mouseUp = function()
 {
-	if (screenState == 2)
+	if (elementManager.screenState == 2)
 	{
 		var dt = +new Date() - this.mdt;
 

@@ -9,19 +9,19 @@
 <body onload="main();">
 	<div id="overlay" class="visible"></div>
 	<div id="title" class="visible">DashTap</div>
-	<img id="playButton" class="visible" onclick="gameScreen(); startGame();" src="/img/play.png">
+	<img id="playButton" class="visible" src="/img/play.png">
 	<img id="storeButton" class="visible" src="/img/store.png">
 	<img id="notButton" class="visible" src="/img/notification.png">
-	<div id="score">0</div>
+	<div id="scoreEl">0</div>
 	<div id="tapText">TAP TO TRY AGAIN</div>
 	<div id="notifications">You have no new notifications!</div>
 	<canvas id="canvas">Your smartphone or browser does not support this game!</canvas>
 </body>
 <script src="/js/prototypeMod.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/ElementManager.js"></script>
 <script src="/js/WallObstacle.js"></script>
 <script src="/js/game.js"></script>
-<script src="/js/elements.js"></script>
 <script src="/js/Player.js"></script>
 <script src="/js/Aim.js"></script>
 <script src="/js/FullObstacle.js"></script>

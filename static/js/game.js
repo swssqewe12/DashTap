@@ -15,7 +15,7 @@ var theScore = 0;
 
 function tick(ctx)
 {
-	if (screenState == 2)
+	if (elementManager.screenState == 2)
 	{
 		update();
 		draw(ctx);
@@ -26,6 +26,7 @@ function tick(ctx)
 
 function initGame()
 {
+	window.onresize();
 	player.side.newAim(0).achieve();
 	obstacleTypes = [WallObstacle];
 	passableObstacleTypes = [WallObstacle];
@@ -35,7 +36,7 @@ function initGame()
 	obstSpeed = 5;
 	obSpIncMult = 1;
 	theScore = 0;
-	score.innerText = theScore;
+	scoreEl.innerText = theScore;
 }
 
 function update()
@@ -45,7 +46,7 @@ function update()
 	if (obstacles[0].highestY() > 0)
 	{
 		theScore++;
-		score.innerText = theScore;
+		scoreEl.innerText = theScore;
 		obstacles.shift();
 	}
 
