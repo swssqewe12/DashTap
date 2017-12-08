@@ -57,7 +57,7 @@ Player.prototype.mouseDown = function(event)
 
 Player.prototype.mouseUp = function(event)
 {
-    event.preventDefault();
+    if (event) event.preventDefault();
 
 	clearTimeout(this.timeout);
 
