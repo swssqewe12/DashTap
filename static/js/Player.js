@@ -77,7 +77,7 @@ Player.prototype.mouseUp = function(event)
 			if (dt < 666)
 				var power = dt / 666 * 3 + 4;
 			else
-				var power = 7 - (dt - 666) / 334 * 3;
+				var power = 7 - (dt - 666) / 334 * 2;
 			this.jump(power);
 		}
 	}
