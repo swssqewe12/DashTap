@@ -1,21 +1,19 @@
-function WallObstacle(side)
+function WallObstacle(side, y)
 {
-	this.w = 400;
-	this.h = 50;
+	this.width = 400;
+	this.height = 50;
 	this.x = side == "left" ? 0 : 400;
-	this.y = oy() - this.h;
 }
 
-WallObstacle.prototype.update = function()
+WallObstacle.prototype.update = function(obstacleSpeed)
 {
-	this.y += obstSpeed * obSpIncMult;
 
 	/*if (player.y - 50 > this.y && player.y < this.y + this.h)
 		endGame();*/
 }
 
-WallObstacle.prototype.draw = function(ctx)
+WallObstacle.prototype.draw = function(y)
 {
-	ctx.fillStyle = "blue";
-	ctx.fillRect(rx(this.x), ry(this.y), rs(this.w), rs(this.h))
+	ctx.fill("gray");
+	ctx.rect(this.x, y, this.width, this.height)
 }
