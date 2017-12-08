@@ -5,6 +5,7 @@ function Context(canvas)
 	this.virtualCanvasWidth = 800;
 
 	this.fillColor = null;
+	this.altitude = 0;
 
 	window.onresize = this.windowResize.bind(this)
 }
@@ -45,4 +46,14 @@ Context.prototype.clear = function(color = "white")
 {
 	this.ctx.fillStyle = color;
 	this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+}
+
+Context.prototype.getWidth = function()
+{
+	return this.virtualCanvasWidth;
+}
+
+Context.prototype.getHeight = function()
+{
+	return this.canvas.height / this.canvas.width * this.virtualCanvasWidth;
 }
