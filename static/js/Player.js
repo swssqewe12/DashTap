@@ -47,14 +47,18 @@ Player.prototype.draw = function()
 	ctx.rect(this.x, this.y, this.size, this.size);
 }
 
-Player.prototype.mouseDown = function()
+Player.prototype.mouseDown = function(event)
 {
+    event.preventDefault();
+
 	this.mdt = +new Date();
 	this.timeout = setTimeout(this.mouseUp.bind(this), 1000);
 }
 
-Player.prototype.mouseUp = function()
+Player.prototype.mouseUp = function(event)
 {
+    event.preventDefault();
+
 	clearTimeout(this.timeout);
 
 	if (this.timeout >= 0 && this.altitude == 0)
