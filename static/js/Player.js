@@ -9,9 +9,9 @@ function Player()
 	this.velocity = 0;
 	this.gravity = -0.4;
 	// between 4 and 7
-	setInterval(() => this.jump(7), 1500);
-	//window.addEventListener("mousedown", this.mouseDown.bind(this))
-	//window.addEventListener("mouseup", this.mouseUp.bind(this))
+	//setInterval(() => this.jump(7), 1500);
+	window.addEventListener("mousedown", this.mouseDown.bind(this))
+	window.addEventListener("mouseup", this.mouseUp.bind(this))
 }
 
 Player.prototype.jump = function(power)
@@ -45,24 +45,36 @@ Player.prototype.draw = function()
 	ctx.rect(this.x, this.y, this.size, this.size);
 }
 
-/*Player.prototype.mouseDown = function()
+Player.prototype.mouseDown = function()
 {
-	if (elementManager.screenState == 2)
-		this.mdt = +new Date();
+	this.mdt = +new Date();
+	this.timeout = setTimeout(this.mouseUp.bind(this), 1000);
 }
 
 Player.prototype.mouseUp = function()
 {
-	if (elementManager.screenState == 2)
+	clearTimeout(this.timeout);
+
+	if (this.timeout >= 0 && this.altitude == 0)
 	{
 		var dt = +new Date() - this.mdt;
 
-		if (dt < 100)
+		if (dt < 80)
 		{
 			if (this.side.aim == 0)
 				this.side.newAim(400);
 			else
 				this.side.newAim(0);
 		}
+		else
+		{
+			if (dt < 666)
+				var power = dt / 666 * 3 + 4;
+			else
+				var power = 7 - (dt - 666) / 334 * 3;
+			this.jump(power);
+		}
 	}
-}*/
+
+	this.timeout = -1;
+}
