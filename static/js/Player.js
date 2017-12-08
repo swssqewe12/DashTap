@@ -12,6 +12,8 @@ function Player()
 	//setInterval(() => this.jump(7), 1500);
 	window.addEventListener("mousedown", this.mouseDown.bind(this))
 	window.addEventListener("mouseup", this.mouseUp.bind(this))
+	window.addEventListener("touchstart", this.mouseDown.bind(this))
+	window.addEventListener("touchend", this.mouseUp.bind(this))
 }
 
 Player.prototype.jump = function(power)
