@@ -6,6 +6,7 @@ function Context(canvas)
 
 	this.fillColor = null;
 	this.altitude = 0;
+	this.arp = {'x':0,'y':0};
 
 	window.onresize = this.windowResize.bind(this)
 }
@@ -15,6 +16,28 @@ Context.prototype.windowResize = function()
 	var canvasCS = window.getComputedStyle(this.canvas, null);
 	this.canvas.width = canvasCS.getPropertyValue("width").slice(0, -2);
 	this.canvas.height = canvasCS.getPropertyValue("height").slice(0, -2);
+}
+
+Context.prototype.rx = function(vx)
+{
+	var subx = (vx - this.arp.x) * (1 + this.altitude / 100) + this.arp.x;
+	return subx / this.virtualCanvasWidth * this.canvas.width ;
+}
+
+Context.prototype.ry = function(vy)
+{
+	var suby = (vy - this.arp.y) * (1 + this.altitude / 100) + this.arp.y;
+	return -suby / this.virtualCanvasWidth * this.canvas.width + this.canvas.height;
+}
+
+Context.prototype.rw = function(vw)
+{
+	return (vw / this.virtualCanvasWidth * this.canvas.width) * (1 + this.altitude / 100);
+}
+
+Context.prototype.rh = function(vh)
+{
+	return (vh / this.virtualCanvasWidth * this.canvas.width) * (1 + this.altitude / 100);
 }
 
 Context.prototype.fill = function(color)
@@ -28,18 +51,14 @@ Context.prototype.noFill = function()
 	this.fillColor = color;
 }
 
-Context.prototype.rect = function(vx, vy, vw, vh)
+Context.prototype.rect = function(x, y, w, h)
 {
-	vh == vh || vw;
-	x = vx / this.virtualCanvasWidth * this.canvas.width;
-	y = -vy / this.virtualCanvasWidth * this.canvas.width + this.canvas.height;
-	w = vw / this.virtualCanvasWidth * this.canvas.width;
-	h = vh / this.virtualCanvasWidth * this.canvas.width;
+	h == h || w;
 
 	if (this.fillColor)
-		this.ctx.fillRect(x, y-h, w, h)
+		this.ctx.fillRect(this.rx(x), this.ry(y)-this.rh(h), this.rw(w), this.rh(h));
 	else
-		this.ctx.strokeRect(x, y-h, w, h)
+		this.ctx.strokeRect(this.rx(x), this.ry(y)-this.rh(h), this.rw(w), this.rh(h));
 }
 
 Context.prototype.clear = function(color = "white")
@@ -56,4 +75,10 @@ Context.prototype.getWidth = function()
 Context.prototype.getHeight = function()
 {
 	return this.canvas.height / this.canvas.width * this.virtualCanvasWidth;
+}
+
+Context.prototype.setAltitudeRelativePoint = function(x, y)
+{
+	this.arp.x = x;
+	this.arp.y = y;
 }

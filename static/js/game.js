@@ -29,10 +29,17 @@ Game.prototype.reset = function()
 Game.prototype.update = function()
 {
 	this.player.update();
+	ctx.setAltitudeRelativePoint(this.player.x + this.player.size / 2, this.player.y);
 }
+
+test = 0;
 
 Game.prototype.draw = function()
 {
 	ctx.clear();
 	this.player.draw();
+	ctx.altitude = test;
+	test -= 0.1;
+	ctx.fill("brown");
+	ctx.rect(0, 400, 400, 50);
 }

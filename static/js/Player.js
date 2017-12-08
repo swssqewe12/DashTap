@@ -17,6 +17,7 @@ Player.prototype.update = function()
 
 Player.prototype.draw = function()
 {
+	ctx.altitude = 0;
 	ctx.fill("red");
 	ctx.rect(this.x, this.y, this.size, this.size);
 }
