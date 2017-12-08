@@ -32,10 +32,15 @@ FullObstacle.prototype.update = function(obstacleSpeed)
 		this.right.update()
 }
 
-FullObstacle.prototype.draw = function(ctx)
+FullObstacle.prototype.draw = function()
 {
 	if (this.left)
 		this.left.draw(this.y)
 	if (this.right)
 		this.right.draw(this.y)
+}
+
+FullObstacle.prototype.checkDeath = function(player)
+{
+	return (this.left && this.left.checkDeath(player, this.y)) || (this.right && this.right.checkDeath(player, this.y));
 }

@@ -44,7 +44,15 @@ Game.prototype.update = function()
 		this.fullObstacles.push(new FullObstacle(last.y + last.height + this.obstacleSpacing, this.obstacleTypes, this.passableObstacleTypes, this.secondObstacleChance));
 
 	for (var fullObstacle of this.fullObstacles)
+	{
 		fullObstacle.update(this.obstacleSpeed + this.player.altitude / 6);
+
+		if (fullObstacle.checkDeath(this.player))
+		{
+			this.isRunning = false;
+			elementManager.gameDeathScreen();
+		}
+	}
 
 	if (this.fullObstacles[0].y + this.fullObstacles[0].height < 0)
 	{

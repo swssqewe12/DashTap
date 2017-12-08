@@ -1,9 +1,9 @@
-var ctx;
+var ctx, elementManager;
 
 function main()
 {
-	var elementManager = new ElementManager();
-	/*var*/ game = new Game();
+	elementManager = new ElementManager();
+	var game = new Game();
 	ctx = new Context(canvas);
 
 	document.body.onclick = function()

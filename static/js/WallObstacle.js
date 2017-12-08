@@ -5,11 +5,11 @@ function WallObstacle(side, y)
 	this.x = side == "left" ? 0 : 400;
 }
 
-WallObstacle.prototype.update = function(obstacleSpeed)
-{
+WallObstacle.prototype.update = function(){}
 
-	/*if (player.y - 50 > this.y && player.y < this.y + this.h)
-		endGame();*/
+WallObstacle.prototype.checkDeath = function(player, y)
+{
+	return player.altitude == 0 && player.x < this.x + this.width && player.x + player.size > this.x && player.y < y + this.height && player.y + player.size > y
 }
 
 WallObstacle.prototype.draw = function(y)
