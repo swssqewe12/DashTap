@@ -12,8 +12,11 @@ function ElementManager()
 	*/
 
 	playButton.addEventListener("click", () => {this.gameScreen(); this.gamePlayingScreen.bind(this)});
+	playButton.addEventListener("touchstart", () => {this.gameScreen(); this.gamePlayingScreen.bind(this)});
 	storeButton.onclick = this.storeButtonClick.bind(this);
+	storeButton.ontouchstart = this.storeButtonClick.bind(this);
 	notButton.onclick = this.notificationButtonClick.bind(this);
+	notButton.ontouchstart = this.notificationButtonClick.bind(this);
 }
 
 ElementManager.prototype.menuScreen = function()
@@ -27,8 +30,10 @@ ElementManager.prototype.menuScreen = function()
 	setTimeout(() => canvas.classList.remove("visible"), 300);
 }
 
-ElementManager.prototype.gameScreen = function()
+ElementManager.prototype.gameScreen = function(event)
 {
+	if (event) event.preventDefault();
+
 	this.screenState = 1;
 	title.classList.remove("visible");
 	playButton.classList.remove("visible");
@@ -37,8 +42,10 @@ ElementManager.prototype.gameScreen = function()
 	canvas.classList.add("visible");
 }
 
-ElementManager.prototype.gamePlayingScreen = function()
+ElementManager.prototype.gamePlayingScreen = function(event)
 {
+	if (event) event.preventDefault();
+
 	this.screenState = 2;
 	overlay.classList.remove("visible");
 	storeButton.classList.remove("visible");
@@ -90,6 +97,7 @@ ElementManager.prototype.hidePopup = function()
 ElementManager.prototype.storeButtonClick = function(event)
 {
 	event.stopPropagation();
+	event.preventDefault();
 }
 
 ElementManager.prototype.notificationButtonClick = function(event)
@@ -100,4 +108,5 @@ ElementManager.prototype.notificationButtonClick = function(event)
 		this.notificationsPopup();
 
 	event.stopPropagation();
+	event.preventDefault();
 }
