@@ -6,8 +6,10 @@ function main()
 	var game = new Game();
 	ctx = new Context(canvas);
 
-	document.body.onclick = function()
+	var click = function(event)
 	{
+		event.preventDefault();
+
 		if (elementManager.screenState == 1 && elementManager.popupState == 0)
 		{
 			elementManager.gamePlayingScreen();
@@ -19,5 +21,9 @@ function main()
 		}
 	}
 
+	document.body.onclick = click;
+	document.body.ontouchstart = click;
+
 	playButton.addEventListener("click", game.reset);
+	playButton.addEventListener("touchstart", game.reset);
 }
