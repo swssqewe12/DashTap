@@ -20,6 +20,9 @@ function FullObstacle(y, obstacleTypes, passableObstacleTypes, secondObstacleCha
 		heights.push(this.right.height);
 	this.height = Math.max(...heights);
 	this.y = y;
+
+	if (this.left && this.left.takeMaxHeightIntoAccount) this.left.takeMaxHeightIntoAccount(this.height);
+	if (this.right && this.right.takeMaxHeightIntoAccount) this.right.takeMaxHeightIntoAccount(this.height);
 }
 
 FullObstacle.prototype.update = function(obstacleSpeed)
