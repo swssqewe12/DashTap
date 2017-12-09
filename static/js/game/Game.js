@@ -20,8 +20,9 @@ Game.prototype.reset = function()
 {
 	window.onresize();
 
-	this.obstacleTypes = [WallObstacle];
+	this.obstacleTypes = [WallObstacle, HoleObstacle];
 	this.passableObstacleTypes = [WallObstacle];
+
 	this.secondObstacleChance = 25;
 	this.obstacleSpacing = 500;
 	this.obstacleSpeed = 6;
@@ -60,6 +61,10 @@ Game.prototype.update = function()
 		this.score += 1;
 		scoreEl.innerText = this.score;
 	}
+
+	if (this.obstacleSpeed < 12) this.obstacleSpeed += 0.001;
+	if (this.obstacleSpacing > 200) this.obstacleSpacing -= 0.02;
+	if (this.secondObstacleChance < 75) this.secondObstacleChance += 0.01;
 }
 
 Game.prototype.draw = function()
