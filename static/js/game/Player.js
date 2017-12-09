@@ -54,7 +54,7 @@ Player.prototype.mouseDown = function(event)
     event.preventDefault();
 
 	this.mdt = +new Date();
-	this.timeout = setTimeout(this.mouseUp.bind(this), 1000);
+	this.timeout = setTimeout(this.mouseUp.bind(this), 666);
 }
 
 Player.prototype.mouseUp = function(event)
@@ -76,7 +76,7 @@ Player.prototype.mouseUp = function(event)
 		}
 		else
 		{
-			var power = dt / 1000 * 2 + 3.5;
+			var power = dt / 1000 * 1.5 + 4;
 			this.jump(power);
 		}
 	}
