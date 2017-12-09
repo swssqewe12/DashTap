@@ -14,9 +14,9 @@ function ElementManager()
 	playButton.addEventListener("click", () => {this.gameScreen(); this.gamePlayingScreen.bind(this)});
 	playButton.addEventListener("touchstart", () => {this.gameScreen(); this.gamePlayingScreen.bind(this)});
 	storeButton.onclick = this.storeButtonClick.bind(this);
-	storeButton.ontouchstart = this.storeButtonClick.bind(this);
+	storeButton.ontouchend = this.storeButtonClick.bind(this);
 	notButton.onclick = this.notificationButtonClick.bind(this);
-	notButton.ontouchstart = this.notificationButtonClick.bind(this);
+	notButton.ontouchend = this.notificationButtonClick.bind(this);
 }
 
 ElementManager.prototype.menuScreen = function()
