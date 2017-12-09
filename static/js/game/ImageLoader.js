@@ -4,6 +4,7 @@ function ImageLoader()
 	this.loadImage("/img/game/player.png", "player");
 	this.loadImage("/img/game/santa_hat.png", "santa_hat");
 	this.loadImage("/img/game/wall.png", "wall");
+	this.loadImage("/img/game/hole.png", "hole");
 	this.images = {};
 }
 
