@@ -1,7 +1,7 @@
 function Player()
 {
 	this.x = 0;
-	this.y = 20;
+	this.y = 30;
 	this.side = new Aim(0);
 	this.sideX = 200;
 	this.size = 80;

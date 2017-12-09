@@ -22,7 +22,7 @@ function main()
 	}
 
 	document.body.onclick = click;
-	document.body.ontouchstart = click;
+	document.body.ontouchend = click;
 
 	playButton.addEventListener("click", game.reset);
 	playButton.addEventListener("touchstart", game.reset);

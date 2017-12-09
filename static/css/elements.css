@@ -17,7 +17,7 @@
 }
 
 #overlay.opaque.visible {
-	opacity: 0.6;
+	opacity: 0.75;
 }
 
 #title {
@@ -97,7 +97,7 @@
 
 #tapText {
 	position: fixed;
-	bottom: -40px;
+	bottom: -80px;
 	width: 100%;
 	font-size: 24px;
 	text-align: center;
@@ -106,7 +106,7 @@
 }
 
 #tapText.visible {
-	bottom: 70px;
+	bottom: 25%;
 }
 
 #notifications {
