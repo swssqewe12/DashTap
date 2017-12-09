@@ -67,6 +67,12 @@ Game.prototype.draw = function()
 	ctx.clear();
 	ctx.altitude = -this.player.altitude * 0.7;
 
+	ctx.fill("#eee");
+	ctx.rect(400, 0, 2, 1600);
+	ctx.rect(0, 0, 2, 1600);
+	ctx.rect(798, 0, 2, 1600);
+
+
 	for (var fullObstacle of this.fullObstacles)
 		fullObstacle.draw();
 
