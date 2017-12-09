@@ -25,7 +25,7 @@ Game.prototype.reset = function()
 
 	this.secondObstacleChance = 25;
 	this.obstacleSpacing = 500;
-	this.obstacleSpeed = 6;
+	this.obstacleSpeed = 5;
 	this.score = 0;
 	this.player = new Player();
 	this.fullObstacles = [new FullObstacle(800, this.obstacleTypes, this.passableObstacleTypes, this.secondObstacleChance)];
@@ -62,9 +62,9 @@ Game.prototype.update = function()
 		scoreEl.innerText = this.score;
 	}
 
-	if (this.obstacleSpeed < 12) this.obstacleSpeed += 0.001;
-	if (this.obstacleSpacing > 200) this.obstacleSpacing -= 0.02;
-	if (this.secondObstacleChance < 75) this.secondObstacleChance += 0.01;
+	if (this.obstacleSpeed < 9) this.obstacleSpeed += 0.0005;
+	if (this.obstacleSpacing > 250) this.obstacleSpacing -= 0.01;
+	if (this.secondObstacleChance < 75) this.secondObstacleChance += 0.005;
 }
 
 Game.prototype.draw = function()

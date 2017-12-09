@@ -67,19 +67,22 @@ Context.prototype.rect = function(x, y, w, h)
 
 Context.prototype.img = function(name, x, y, w, h)
 {
-	var image = this.images.get(name);
+	if (name != "TRANSPARENT")
+	{
+		var image = this.images.get(name);
 
-	if (image)
-	{
-		w = w || image.width;
-		h = h || image.height;
-		this.ctx.drawImage(image, this.rx(x), this.ry(y)-this.rh(h), this.rw(w), this.rh(h));
-	}
-	else
-	{
-		w = w || 10;
-		h = h || 10;
-		this.rect(x, y, w, h)
+		if (image)
+		{
+			w = w || image.width;
+			h = h || image.height;
+			this.ctx.drawImage(image, this.rx(x), this.ry(y)-this.rh(h), this.rw(w), this.rh(h));
+		}
+		else
+		{
+			w = w || 10;
+			h = h || 10;
+			this.rect(x, y, w, h)
+		}
 	}
 }
 

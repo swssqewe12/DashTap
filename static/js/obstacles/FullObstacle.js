@@ -23,6 +23,12 @@ function FullObstacle(y, obstacleTypes, passableObstacleTypes, secondObstacleCha
 
 	if (this.left && this.left.takeMaxHeightIntoAccount) this.left.takeMaxHeightIntoAccount(this.height);
 	if (this.right && this.right.takeMaxHeightIntoAccount) this.right.takeMaxHeightIntoAccount(this.height);
+
+	if (this.left && this.right && this.left.constructor.name == this.right.constructor.name)
+	{
+		if (this.left.takeSameObstacleIntoAccount) this.left.takeSameObstacleIntoAccount(this.right);
+		if (this.right.takeSameObstacleIntoAccount) this.right.takeSameObstacleIntoAccount(this.left);
+	}
 }
 
 FullObstacle.prototype.update = function(obstacleSpeed)
