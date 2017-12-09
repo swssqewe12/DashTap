@@ -3,13 +3,14 @@ function WallObstacle(side, y)
 	this.width = 400;
 	this.height = 75;
 	this.x = side == "left" ? 0 : 400;
+	this.cb1 = new CollisionBox(400, 50);
 }
 
 WallObstacle.prototype.update = function(){}
 
 WallObstacle.prototype.checkDeath = function(player, y)
 {
-	return player.altitude == 0 && player.x < this.x + this.width && player.x + player.size > this.x && player.y < y + this.height && player.y + player.size > y
+	return player.altitude == 0 && this.cb1.checkCollision(this.x, y + 13, player.x, player.y, player.size);
 }
 
 WallObstacle.prototype.draw = function(y)
