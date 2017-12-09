@@ -77,7 +77,6 @@ Game.prototype.draw = function()
 	ctx.rect(0, 0, 2, 1600);
 	ctx.rect(798, 0, 2, 1600);
 
-
 	for (var fullObstacle of this.fullObstacles)
 		fullObstacle.draw();
 
