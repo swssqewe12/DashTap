@@ -74,7 +74,7 @@ Player.prototype.mouseUp = function(event)
 		}
 		else
 		{
-			var power = dt / 1000 * 2.5 + 3;
+			var power = dt / 1000 * 2 + 3.5;
 			this.jump(power);
 		}
 	}

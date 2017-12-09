@@ -15,5 +15,5 @@ WallObstacle.prototype.checkDeath = function(player, y)
 WallObstacle.prototype.draw = function(y)
 {
 	ctx.fill("gray");
-	ctx.rect(this.x, y, this.width, this.height)
+	ctx.rect(this.x-1, y, this.width+2, this.height)
 }
