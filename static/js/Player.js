@@ -7,7 +7,7 @@ function Player()
 	this.size = 80;
 	this.altitude = 0;
 	this.velocity = 0;
-	this.gravity = -0.4;
+	this.gravity = -0.35;
 	// between 4 and 7
 	//setInterval(() => this.jump(7), 1500);
 	window.addEventListener("mousedown", this.mouseDown.bind(this))
@@ -65,7 +65,7 @@ Player.prototype.mouseUp = function(event)
 	{
 		var dt = +new Date() - this.mdt;
 
-		if (dt < 80)
+		if (dt < 200)
 		{
 			if (this.side.aim == 0)
 				this.side.newAim(400);
@@ -74,10 +74,7 @@ Player.prototype.mouseUp = function(event)
 		}
 		else
 		{
-			if (dt < 666)
-				var power = dt / 666 * 3 + 4;
-			else
-				var power = 7 - (dt - 666) / 334 * 2;
+			var power = dt / 1000 * 2.5 + 3;
 			this.jump(power);
 		}
 	}
