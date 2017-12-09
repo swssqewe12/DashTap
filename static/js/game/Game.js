@@ -25,7 +25,7 @@ Game.prototype.reset = function()
 
 	this.secondObstacleChance = 25;
 	this.obstacleSpacing = 500;
-	this.obstacleSpeed = 5;
+	this.obstacleSpeed = 6;
 	this.score = 0;
 	this.player = new Player();
 	this.fullObstacles = [new FullObstacle(800, this.obstacleTypes, this.passableObstacleTypes, this.secondObstacleChance)];
@@ -60,6 +60,12 @@ Game.prototype.update = function()
 		this.fullObstacles.shift();
 		this.score += 1;
 		scoreEl.innerText = this.score;
+
+		if (this.score == 5)
+		{
+			this.obstacleTypes.push(MovingWallObstacle);
+			this.passableObstacleTypes.push(MovingWallObstacle);
+		}
 	}
 
 	if (this.obstacleSpeed < 9) this.obstacleSpeed += 0.0005;

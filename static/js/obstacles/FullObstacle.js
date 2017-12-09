@@ -5,12 +5,12 @@ function FullObstacle(y, obstacleTypes, passableObstacleTypes, secondObstacleCha
 	var primOb = new (obstacleTypes.random())(side, y);
 	this[side] = primOb;
 
-	if (Math.random() * 100 < secondObstacleChance)
+	if (this[side].laneCount != 2 && Math.random() * 100 < secondObstacleChance)
 	{
 		if (primOb.passable == true)
-			this[otherSide] = new (obstacleTypes.random())(otherSide, y);
+			this[otherSide] = new (obstacleTypes.filter(typ => typ.prototype.laneCount != 2).random())(otherSide, y);
 		else
-			this[otherSide] = new (passableObstacleTypes.random())(otherSide, y);
+			this[otherSide] = new (passableObstacleTypes.filter(typ => typ.prototype.laneCount != 2).random())(otherSide, y);
 	}
 
 	heights = [];
