@@ -2,11 +2,15 @@ function Context(canvas)
 {
 	this.canvas = canvas;
 	this.ctx = canvas.getContext("2d");
+	this.ctx.imageSmoothingQuality = "high";
+ 	this.imageSmoothingEnabled = true;
 	this.virtualCanvasWidth = 800;
 
 	this.fillColor = null;
 	this.altitude = 0;
 	this.arp = {'x':0,'y':0};
+
+	this.images = new ImageLoader();
 
 	window.onresize = this.windowResize.bind(this)
 }
@@ -59,6 +63,24 @@ Context.prototype.rect = function(x, y, w, h)
 		this.ctx.fillRect(this.rx(x), this.ry(y)-this.rh(h), this.rw(w), this.rh(h));
 	else
 		this.ctx.strokeRect(this.rx(x), this.ry(y)-this.rh(h), this.rw(w), this.rh(h));
+}
+
+Context.prototype.img = function(name, x, y, w, h)
+{
+	var image = this.images.get(name);
+
+	if (image)
+	{
+		w = w || image.width;
+		h = h || image.height;
+		this.ctx.drawImage(image, this.rx(x), this.ry(y)-this.rh(h), this.rw(w), this.rh(h));
+	}
+	else
+	{
+		w = w || 10;
+		h = h || 10;
+		this.rect(x, y, w, h)
+	}
 }
 
 Context.prototype.clear = function(color = "white")

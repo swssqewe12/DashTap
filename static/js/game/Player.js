@@ -43,8 +43,10 @@ Player.prototype.update = function()
 Player.prototype.draw = function()
 {
 	ctx.altitude = this.altitude * 0.25;
-	ctx.fill("red");
-	ctx.rect(this.x, this.y, this.size, this.size);
+	//ctx.fill("red");
+	//ctx.rect(this.x, this.y, this.size, this.size);
+	ctx.img("player", this.x, this.y, this.size, this.size);
+	ctx.img("santa_hat", this.x-5, this.y+15, this.size*1.3, this.size*1.3);
 }
 
 Player.prototype.mouseDown = function(event)
